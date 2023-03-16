@@ -3,33 +3,43 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /* ------------------------------------- */
 /* commmon */
-.flex-h{
+.flex-h {
     display: flex;
-    padding: 20px;
+    padding: 10px;
     justify-content: space-between;
 }
 
-.img-h{
+.img-h {
     width: 50px;
     border-radius: 50%;
 }
 
-.contact-name{
+.contact-name {
     font-weight: 400;
 }
 
 ul{
     list-style-type: none;
+}
+header ul {
     display: flex;
     line-height: 50px;
     color: #b1b1b1;
     gap: 15px;
 }
-li{
+
+li {
     font-size: 20px;
 }
+
+li img{
+    width: 60px;
+    border-radius: 50%;
+}
+
 /* ------------------------------------- */
 body {
     height: 100vh;
@@ -47,17 +57,93 @@ body {
 }
 
 /* aside style */
-aside{
+aside {
     width: 40%;
+    display: flex;
+    flex-direction: column;
 }
 
-aside .flex-h > div:first-child{
+aside .flex-h>div:first-child {
     display: flex;
     align-items: center;
 }
 
+.notifications {
+    background-color: #8edafc;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.notifications i {
+    color: #8edafc;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.notifications div p {
+    text-decoration: underline;
+    color: grey;
+    font-size: 12px;
+}
+
+.contacts {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+nav{
+    display: flex;
+    gap: 30px;
+    color: #b1b1b1;
+    padding: 15px 0;
+    padding-left: 45px;
+}
+
+nav input{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+
+
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 15px 10px 30px;
+}
+
+.contact > div:first-child{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+}
+.contact h4{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.contact p{
+    color: grey;
+    font-size: 12px;
+}
+.contact-hour{
+    align-self: flex-start;
+    color: grey;
+    font-size: 12px;
+
+}
+
+
 /* main body style */
-div.bodymsg{
+div.bodymsg {
     width: 60%;
     background-color: aquamarine;
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>BOOLZAPP</title>
 </head>
+
 <body>
     <div id="app">
         <div class="container">
@@ -30,9 +31,33 @@
                         </ul>
                     </div>
                 </header>
-                <div class="notifications"></div>
-                <nav></nav>
-                <ul class="contancts"></ul>
+                <div class="notifications">
+                    <i class="fa-solid fa-bell-slash"></i>
+                    <div>
+                        <h4 class="contact-name">Ricevi notifiche dei nuovi messaggi</h4>
+                        <p>Attiva notifiche desktop</p>
+                    </div>
+                </div>
+                <nav>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </nav>
+                <div class="contacts">
+                    <ul class="contact-list">
+                        <li class="contact">
+                            <div>
+                                <img src="img/avatar_1.jpg" alt="avatar">
+                                <div>
+                                    <h4 class="contact-name">Nicholas</h4>
+                                    <p>Ultimo messaggio inviato</p>
+                                </div>
+                            </div>
+                            <div class="contact-hour">
+                                12:00
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </aside>
             <div class="bodymsg"></div>
         </div>
