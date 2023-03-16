@@ -44,7 +44,7 @@
                 </nav>
                 <div class="contacts">
                     <ul class="contact-list">
-                        <li class="contact" v-for="contact in contacts">
+                        <li class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)">
                             <div>
                                 <img :src="contact.avatar" alt="avatar">
                                 <div>
@@ -78,9 +78,9 @@
                 </header>
                 <main>
                     <ul class="messages">
-                        <li class="msg">
-                            <div class="box recived">
-                               <p>et omnis. Sequi, praesentium?</p>
+                        <li class="msg" v-for="chat in contacts[chatIndex].messages">
+                            <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
+                               <p>{{chat.message}}</p>
                                <span>12.00</span>
                             </div>
                         </li>
