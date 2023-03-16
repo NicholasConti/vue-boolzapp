@@ -1,21 +1,63 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-body{
-    height: 100vh;
-    background-color: lightskyblue;
+/* ------------------------------------- */
+/* commmon */
+.flex-h{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
 }
 
-.container{
-    max-width: 600px;
+.img-h{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.contact-name{
+    font-weight: 400;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    line-height: 50px;
+    color: #b1b1b1;
+    gap: 15px;
+}
+li{
+    font-size: 20px;
+}
+/* ------------------------------------- */
+body {
     height: 100vh;
+    background: #d9dbd4;
+    background: linear-gradient(0deg, #d9dbd4 85%, rgba(0, 168, 132, 1) 85%);
+    padding-top: 30px;
+}
+
+.container {
+    max-width: 80vw;
+    height: 95vh;
+    background-color: #eaeaea;
     margin: 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
 }
 
+/* aside style */
+aside{
+    width: 40%;
+}
+
+aside .flex-h > div:first-child{
+    display: flex;
+    align-items: center;
+}
+
+/* main body style */
+div.bodymsg{
+    width: 60%;
+    background-color: aquamarine;
+}
