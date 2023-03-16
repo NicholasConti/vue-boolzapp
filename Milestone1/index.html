@@ -44,11 +44,11 @@
                 </nav>
                 <div class="contacts">
                     <ul class="contact-list">
-                        <li class="contact">
+                        <li class="contact" v-for="contact in contacts">
                             <div>
-                                <img src="../img/avatar_1.jpg" alt="avatar">
+                                <img :src="contact.avatar" alt="avatar">
                                 <div>
-                                    <h4 class="contact-name">Nicholas</h4>
+                                    <h4 class="contact-name">{{contact.name}}</h4>
                                     <p class="detail">Ultimo messaggio inviato</p>
                                 </div>
                             </div>

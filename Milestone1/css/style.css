@@ -97,6 +97,7 @@ aside {
 .contacts {
     flex-grow: 1;
     overflow-y: auto;
+    background-color: white;
 }
 
 nav{
@@ -105,6 +106,7 @@ nav{
     color: #b1b1b1;
     padding: 15px 0;
     padding-left: 45px;
+    background-color: white;
 }
 
 nav input{
@@ -117,7 +119,6 @@ nav input{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
     padding: 10px 15px 10px 30px;
 }
 
