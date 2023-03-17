@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -20,8 +23,8 @@
             <aside>
                 <header class="flex-h">
                     <div>
-                        <img src="../img/avatar_1.jpg" alt="avatar" class="img-h">
-                        <h4 class="contact-name">Nicholas</h4>
+                        <img src="../img/avatar_io.jpg" alt="avatar" class="img-h">
+                        <h4 class="contact-name">Sofia</h4>
                     </div>
                     <div>
                         <ul>
@@ -80,8 +83,8 @@
                     <ul class="messages">
                         <li class="msg" v-for="chat in contacts[chatIndex].messages">
                             <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
-                               <p>{{chat.message}}</p>
-                               <span>12.00</span>
+                                <p>{{chat.message}}</p>
+                                <span>12.00</span>
                             </div>
                         </li>
                     </ul>
