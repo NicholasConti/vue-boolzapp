@@ -1,7 +1,11 @@
+
+var DateTime = luxon.DateTime;
+
 const { createApp } = Vue;
 createApp({
     data() {
         return {
+            nowDt: null,
             chatIndex: 0,
             newMsg: '',
             contacts: [
@@ -173,11 +177,13 @@ createApp({
     methods: {
         selectChat(index) {
             this.chatIndex = index;
+            this.nowToString();
+            
         },
         addMsg() {
             if (this.newMsg.trim() !== '') {
                 const newObject = {
-                    date: '10/01/2020 15:50:00',
+                    date: this.nowToString(),
                     message: this.newMsg,
                     status: 'sent'
                 }
@@ -188,11 +194,20 @@ createApp({
         },
         answerMsg() {
             const newAnswer = {
-                date: '10/01/2020 15:50:00',
+                date: this.nowToString(),
                 message: 'OK!',
                 status: 'recived'
             }
             this.contacts[this.chatIndex].messages.push(newAnswer);
+        },
+        getNow(){
+            this.nowDt = DateTime.now();
+        },
+        nowToString(){
+            this.getNow();
+            const nowReal = this.nowDt.toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+            return nowReal;
         }
     }
 }).mount('#app');
+

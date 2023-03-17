@@ -65,9 +65,9 @@
             <div class="bodymsg">
                 <header class="flex-h">
                     <div>
-                        <img src="../img/avatar_1.jpg" alt="avatar" class="img-h">
+                        <img :src="contacts[chatIndex].avatar" alt="avatar" class="img-h">
                         <div>
-                            <h4 class="contact-name">Nicholas</h4>
+                            <h4 class="contact-name">{{contacts[chatIndex].name}}</h4>
                             <p class="detail">Ultimo accesso</p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <li class="msg" v-for="chat in contacts[chatIndex].messages">
                             <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
                                 <p>{{chat.message}}</p>
-                                <span>12.00</span>
+                                <span>{{chat.date}}</span>
                             </div>
                         </li>
                     </ul>
@@ -97,6 +97,8 @@
             </div>
         </div>
     </div>
+    <!-- luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <!-- vuejs -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- my js -->
