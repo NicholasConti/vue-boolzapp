@@ -183,7 +183,16 @@ createApp({
                 }
                 this.contacts[this.chatIndex].messages.push(newObject);
                 this.newMsg = '';
+                setTimeout(this.answerMsg, 1000);
             }
+        },
+        answerMsg() {
+            const newAnswer = {
+                date: '10/01/2020 15:50:00',
+                message: 'OK!',
+                status: 'recived'
+            }
+            this.contacts[this.chatIndex].messages.push(newAnswer);
         }
     }
 }).mount('#app');
