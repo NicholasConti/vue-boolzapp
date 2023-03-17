@@ -61,7 +61,7 @@ body {
     display: flex;
 }
 
-/* aside style */
+/* ASIDE STYLE */
 aside {
     width: 40%;
     display: flex;
@@ -140,7 +140,7 @@ nav input{
     font-size: 12px;
 }
 
-/* main body style */
+/* MAIN BODY STYLE */
 div.bodymsg {
     width: 60%;
     display: flex;
@@ -154,6 +154,7 @@ div.bodymsg {
     flex-grow: 1;
     background-image: url(../../img/mine.jpg);
     padding: 40px 60px;
+    overflow-y: auto;
 }
 
 .msg{
@@ -166,7 +167,7 @@ div.bodymsg {
     min-width: 250px;
     border-radius: 15px;
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 .sent{
     margin-left: auto;
@@ -186,6 +187,16 @@ div.bodymsg {
     color: #b1b1b1;
     align-self: flex-end;
     padding: 5px;
+ }
+ .box i{
+    align-self: center;
+    font-size: 14px;
+    color: grey;
+    padding-right: 10px;
+    display: none;
+ }
+ .box:hover i{
+    display: block;
  }
 
 .bodymsg footer{

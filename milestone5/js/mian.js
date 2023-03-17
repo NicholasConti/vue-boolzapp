@@ -1,6 +1,6 @@
-
+//LUXON
 var DateTime = luxon.DateTime;
-
+//VUE
 const { createApp } = Vue;
 createApp({
     data() {
@@ -175,9 +175,11 @@ createApp({
         }
     },
     methods: {
+        //GET INDEX CHAT
         selectChat(index) {
-            this.chatIndex = index;            
+            this.chatIndex = index;
         },
+        //SEND MESSAGE
         addMsg() {
             if (this.newMsg.trim() !== '') {
                 const newObject = {
@@ -190,6 +192,7 @@ createApp({
                 setTimeout(this.answerMsg, 1000);
             }
         },
+        //RECIVE MESSAGE AUTO
         answerMsg() {
             const newAnswer = {
                 date: this.nowToString(),
@@ -198,20 +201,23 @@ createApp({
             }
             this.contacts[this.chatIndex].messages.push(newAnswer);
         },
-        getNow(){
+        //GET DATE WITH LUXON
+        getNow() {
             this.nowDt = DateTime.now();
         },
-        nowToString(){
+        // TRASFORM DATE IN STRING W/LUXON
+        nowToString() {
             this.getNow();
             const nowReal = this.nowDt.toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
             return nowReal;
         },
+        //FILTER CONTACTS 
         filteredContacts() {
             if (this.searchKey !== '') {
                 const newList = this.contacts.filter(element => element.name.toLowerCase().includes(this.searchKey.toLowerCase()));
-                if (newList.length > 0){
+                if (newList.length > 0) {
                     return newList;
-                }  else {
+                } else {
                     return this.contacts;
                 }
             } else {

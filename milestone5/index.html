@@ -41,10 +41,14 @@
                         <p>Attiva notifiche desktop</p>
                     </div>
                 </div>
+                <!-- SEARCH CONTACT -->
                 <nav>
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" v-model="searchKey"  @keyup="filteredContacts" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" v-model="searchKey" @keyup="filteredContacts"
+                        placeholder="Cerca o inizia una nuova chat">
                 </nav>
+                <!-- /SEARCH CONTACT -->
+                <!-- CONTACTS LIST -->
                 <div class="contacts">
                     <ul class="contact-list">
                         <li class="contact" v-for="(contact, index) in filteredContacts()" @click="selectChat(index)">
@@ -52,7 +56,7 @@
                                 <img :src="contact.avatar" alt="avatar">
                                 <div>
                                     <h4 class="contact-name">{{contact.name}}</h4>
-                                    <p class="detail">Ultimo messaggio inviato</p>
+                                    <p class="detail">{{contact.messages[1].message}}</p>
                                 </div>
                             </div>
                             <div class="contact-hour">
@@ -62,7 +66,10 @@
                     </ul>
                 </div>
             </aside>
+                <!-- /CONTACTS LIST -->
+            <!-- BODY CHAT -->
             <div class="bodymsg">
+                <!-- HEADER MESSAGES MENU -->
                 <header class="flex-h">
                     <div>
                         <img :src="filteredContacts()[chatIndex].avatar" alt="avatar" class="img-h">
@@ -79,21 +86,27 @@
                         </ul>
                     </div>
                 </header>
+                <!-- /HEADER MESSAGES MENU -->
+                <!-- MAIN -->
                 <main>
                     <ul class="messages">
                         <li class="msg" v-for="chat in filteredContacts()[chatIndex].messages">
                             <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
                                 <p>{{chat.message}}</p>
                                 <span>{{chat.date}}</span>
+                                <i class="fa-solid fa-chevron-down"></i>
                             </div>
                         </li>
                     </ul>
                 </main>
+                <!-- /MAIN -->
+                <!-- FOOTER -->
                 <footer>
                     <i class="fa-regular fa-face-smile"></i>
                     <input type="text" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="addMsg">
                     <i class="fa-solid fa-microphone"></i>
                 </footer>
+                <!-- /FOOTER -->
             </div>
         </div>
     </div>
