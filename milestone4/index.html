@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>BOOLZAPP</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <aside>
+                <header class="flex-h">
+                    <div>
+                        <img src="../img/avatar_io.jpg" alt="avatar" class="img-h">
+                        <h4 class="contact-name">Sofia</h4>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-notch"></i></li>
+                            <li><i class="fa-solid fa-message"></i></li>
+                            <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="notifications">
+                    <i class="fa-solid fa-bell-slash"></i>
+                    <div>
+                        <h4 class="contact-name">Ricevi notifiche dei nuovi messaggi</h4>
+                        <p>Attiva notifiche desktop</p>
+                    </div>
+                </div>
+                <nav>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </nav>
+                <div class="contacts">
+                    <ul class="contact-list">
+                        <li class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)">
+                            <div>
+                                <img :src="contact.avatar" alt="avatar">
+                                <div>
+                                    <h4 class="contact-name">{{contact.name}}</h4>
+                                    <p class="detail">Ultimo messaggio inviato</p>
+                                </div>
+                            </div>
+                            <div class="contact-hour">
+                                12:00
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <div class="bodymsg">
+                <header class="flex-h">
+                    <div>
+                        <img :src="contacts[chatIndex].avatar" alt="avatar" class="img-h">
+                        <div>
+                            <h4 class="contact-name">{{contacts[chatIndex].name}}</h4>
+                            <p class="detail">Ultimo accesso</p>
+                        </div>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                            <li><i class="fa-solid fa-paperclip"></i></li>
+                            <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                        </ul>
+                    </div>
+                </header>
+                <main>
+                    <ul class="messages">
+                        <li class="msg" v-for="chat in contacts[chatIndex].messages">
+                            <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
+                                <p>{{chat.message}}</p>
+                                <span>{{chat.date}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </main>
+                <footer>
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="addMsg">
+                    <i class="fa-solid fa-microphone"></i>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <!-- vuejs -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- my js -->
+    <script src="js/mian.js"></script>
+</body>
+
+</html>
