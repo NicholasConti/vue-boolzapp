@@ -6,6 +6,7 @@ createApp({
     data() {
         return {
             nowDt: null,
+            searchKey: '',
             chatIndex: 0,
             newMsg: '',
             contacts: [
@@ -171,14 +172,11 @@ createApp({
                     ],
                 }
             ]
-
         }
     },
     methods: {
         selectChat(index) {
-            this.chatIndex = index;
-            this.nowToString();
-            
+            this.chatIndex = index;            
         },
         addMsg() {
             if (this.newMsg.trim() !== '') {
@@ -207,6 +205,19 @@ createApp({
             this.getNow();
             const nowReal = this.nowDt.toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
             return nowReal;
+        },
+        filteredContacts() {
+            if (this.searchKey !== '') {
+                const newList = this.contacts.filter(element => element.name.toLowerCase().includes(this.searchKey.toLowerCase()));
+                if (newList.length > 0){
+                    return newList;
+                }  else {
+                    return this.contacts;
+                }
+            } else {
+                return this.contacts;
+            }
+
         }
     }
 }).mount('#app');
