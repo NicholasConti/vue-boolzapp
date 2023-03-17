@@ -3,6 +3,7 @@ createApp({
     data() {
         return {
             chatIndex: 0,
+            newMsg: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -172,6 +173,17 @@ createApp({
     methods: {
         selectChat(index) {
             this.chatIndex = index;
+        },
+        addMsg() {
+            if (this.newMsg.trim() !== '') {
+                const newObject = {
+                    date: '10/01/2020 15:50:00',
+                    message: this.newMsg,
+                    status: 'sent'
+                }
+                this.contacts[this.chatIndex].messages.push(newObject);
+                this.newMsg = '';
+            }
         }
     }
 }).mount('#app');
