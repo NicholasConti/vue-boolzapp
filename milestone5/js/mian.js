@@ -187,7 +187,7 @@ createApp({
                     message: this.newMsg,
                     status: 'sent'
                 }
-                this.contacts[this.chatIndex].messages.push(newObject);
+                this.filteredContacts()[this.chatIndex].messages.push(newObject);
                 this.newMsg = '';
                 setTimeout(this.answerMsg, 1000);
             }
@@ -199,7 +199,7 @@ createApp({
                 message: 'OK!',
                 status: 'recived'
             }
-            this.contacts[this.chatIndex].messages.push(newAnswer);
+            this.filteredContacts()[this.chatIndex].messages.push(newAnswer);
         },
         //GET DATE WITH LUXON
         getNow() {
@@ -223,7 +223,6 @@ createApp({
             } else {
                 return this.contacts;
             }
-
         }
     }
 }).mount('#app');

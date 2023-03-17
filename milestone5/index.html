@@ -56,7 +56,7 @@
                                 <img :src="contact.avatar" alt="avatar">
                                 <div>
                                     <h4 class="contact-name">{{contact.name}}</h4>
-                                    <p class="detail">{{contact.messages[1].message}}</p>
+                                    <p class="detail"> {{contact.messages[contact.messages.length -1].message}} </p>
                                 </div>
                             </div>
                             <div class="contact-hour">
