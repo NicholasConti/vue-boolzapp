@@ -92,11 +92,17 @@
                 <main>
                     <ul class="messages">
                         <li class="msg" v-for="chat in contacts[chatIndex].messages">
-                            <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
+                            <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'" >
                                 <p>{{chat.message}}</p>
                                 <div>
-                                    <div>
-                                        <i class="fa-solid fa-chevron-down"></i>
+                                    <div class="dropdown-cnt">
+                                        <i class="fa-solid fa-chevron-down" @click="openMenu"></i>
+                                        <div class="dropdown" v-show="dropMenu === true">
+                                            <ul>
+                                                <li>Message Info</li>
+                                                <li>Delete message</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <span>{{chat.date}}</span>
                                 </div>

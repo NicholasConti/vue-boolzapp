@@ -9,6 +9,7 @@ createApp({
             searchKey: '',
             chatIndex: 0,
             newMsg: '',
+            dropMenu: false,
             contacts: [
                 {
                     name: 'Michele',
@@ -221,6 +222,9 @@ createApp({
                     this.contacts[index].visible = false;
                 }
             })
+        },
+        openMenu(){
+            this.dropMenu = !this.dropMenu;
         }
     }
 }).mount('#app');
