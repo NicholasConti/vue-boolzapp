@@ -181,6 +181,7 @@ createApp({
         },
         //SEND MESSAGE
         addMsg() {
+            const chatToAnswer = this.chatIndex;
             if (this.newMsg.trim() !== '') {
                 const newObject = {
                     date: this.nowToString(),
@@ -189,17 +190,17 @@ createApp({
                 }
                 this.filteredContacts()[this.chatIndex].messages.push(newObject);
                 this.newMsg = '';
-                setTimeout(this.answerMsg, 1000);
+                setTimeout(this.answerMsg, 1000,chatToAnswer);
             }
         },
         //RECIVE MESSAGE AUTO
-        answerMsg() {
+        answerMsg(chatToAnswer) {
             const newAnswer = {
                 date: this.nowToString(),
                 message: 'OK!',
                 status: 'recived'
             }
-            this.filteredContacts()[this.chatIndex].messages.push(newAnswer);
+            this.filteredContacts()[chatToAnswer].messages.push(newAnswer);
         },
         //GET DATE WITH LUXON
         getNow() {

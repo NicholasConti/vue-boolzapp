@@ -111,7 +111,7 @@ nav{
 }
 
 nav input{
-    width: 100%;
+    width: 90%;
     border: none;
     background-color: transparent;
 }
@@ -123,6 +123,9 @@ nav input{
     padding: 15px 15px 15px 30px;
 }
 
+.active{
+    background-color: #e9ebeb;
+}
 .contact > div:first-child{
     display: flex;
     align-items: flex-start;
@@ -188,7 +191,7 @@ div.bodymsg {
     align-self: flex-end;
     padding: 5px;
  }
- .box i{
+ /* .box i{
     align-self: center;
     font-size: 14px;
     color: grey;
@@ -197,7 +200,7 @@ div.bodymsg {
  }
  .box:hover i{
     display: block;
- }
+ } */
 
 .bodymsg footer{
     display: flex;
@@ -213,4 +216,9 @@ div.bodymsg {
     padding: 15px 10px;
     border: none;
     border-radius: 20px;
+}
+
+input[type=text]:focus-visible {
+    outline: 2px solid #b1b1b1;
+    border-radius: 10px;
 }

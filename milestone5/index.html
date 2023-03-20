@@ -51,7 +51,7 @@
                 <!-- CONTACTS LIST -->
                 <div class="contacts">
                     <ul class="contact-list">
-                        <li class="contact" v-for="(contact, index) in filteredContacts()" @click="selectChat(index)">
+                        <li class="contact" v-for="(contact, index) in filteredContacts()" @click="selectChat(index)" :class="{active: index === chatIndex}">
                             <div>
                                 <img :src="contact.avatar" alt="avatar">
                                 <div>
@@ -66,7 +66,7 @@
                     </ul>
                 </div>
             </aside>
-                <!-- /CONTACTS LIST -->
+            <!-- /CONTACTS LIST -->
             <!-- BODY CHAT -->
             <div class="bodymsg">
                 <!-- HEADER MESSAGES MENU -->
@@ -94,7 +94,7 @@
                             <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
                                 <p>{{chat.message}}</p>
                                 <span>{{chat.date}}</span>
-                                <i class="fa-solid fa-chevron-down"></i>
+                                <!-- <i class="fa-solid fa-chevron-down"></i> -->
                             </div>
                         </li>
                     </ul>
