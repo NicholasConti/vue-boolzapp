@@ -207,17 +207,13 @@ createApp({
             return nowReal;
         },
         filteredContacts() {
-            if (this.searchKey !== '') {
-                const newList = this.contacts.filter(element => element.name.toLowerCase().includes(this.searchKey.toLowerCase()));
-                if (newList.length > 0){
-                    return newList;
-                }  else {
-                    return this.contacts;
+            this.contacts.forEach((contact, index) => {
+                if (contact.name.toLowerCase().includes(this.searchKey.toLowerCase())) {
+                    this.contacts[index].visible = true;
+                } else {
+                    this.contacts[index].visible = false;
                 }
-            } else {
-                return this.contacts;
-            }
-
+            })
         }
     }
 }).mount('#app');

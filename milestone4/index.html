@@ -47,7 +47,7 @@
                 </nav>
                 <div class="contacts">
                     <ul class="contact-list">
-                        <li class="contact" v-for="(contact, index) in filteredContacts()" @click="selectChat(index)">
+                        <li class="contact" v-for="(contact, index) in contacts" v-show="contact.visible" @click="selectChat(index)">
                             <div>
                                 <img :src="contact.avatar" alt="avatar">
                                 <div>
@@ -65,9 +65,9 @@
             <div class="bodymsg">
                 <header class="flex-h">
                     <div>
-                        <img :src="filteredContacts()[chatIndex].avatar" alt="avatar" class="img-h">
+                        <img :src="contacts[chatIndex].avatar" alt="avatar" class="img-h">
                         <div>
-                            <h4 class="contact-name">{{filteredContacts()[chatIndex].name}}</h4>
+                            <h4 class="contact-name">{{contacts[chatIndex].name}}</h4>
                             <p class="detail">Ultimo accesso</p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                 </header>
                 <main>
                     <ul class="messages">
-                        <li class="msg" v-for="chat in filteredContacts()[chatIndex].messages">
+                        <li class="msg" v-for="chat in contacts[chatIndex].messages">
                             <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
                                 <p>{{chat.message}}</p>
                                 <span>{{chat.date}}</span>
