@@ -188,7 +188,7 @@ createApp({
                     message: this.newMsg,
                     status: 'sent'
                 }
-                this.filteredContacts()[this.chatIndex].messages.push(newObject);
+                this.contacts[this.chatIndex].messages.push(newObject);
                 this.newMsg = '';
                 setTimeout(this.answerMsg, 1000,chatToAnswer);
             }
@@ -200,7 +200,7 @@ createApp({
                 message: 'OK!',
                 status: 'recived'
             }
-            this.filteredContacts()[chatToAnswer].messages.push(newAnswer);
+            this.contacts[chatToAnswer].messages.push(newAnswer);
         },
         //GET DATE WITH LUXON
         getNow() {

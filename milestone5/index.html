@@ -51,7 +51,8 @@
                 <!-- CONTACTS LIST -->
                 <div class="contacts">
                     <ul class="contact-list">
-                        <li class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)" v-show="contact.visible" :class="{active: index === chatIndex}">
+                        <li class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)"
+                            v-show="contact.visible" :class="{active: index === chatIndex}">
                             <div>
                                 <img :src="contact.avatar" alt="avatar">
                                 <div>
@@ -93,8 +94,12 @@
                         <li class="msg" v-for="chat in contacts[chatIndex].messages">
                             <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
                                 <p>{{chat.message}}</p>
-                                <span>{{chat.date}}</span>
-                                <!-- <i class="fa-solid fa-chevron-down"></i> -->
+                                <div>
+                                    <div>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <span>{{chat.date}}</span>
+                                </div>
                             </div>
                         </li>
                     </ul>
