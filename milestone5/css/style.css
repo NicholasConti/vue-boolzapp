@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+[v-cloak] {
+    display: none;
+  }
 /* ------------------------------------- */
 /* commmon */
 .flex-h {
@@ -232,6 +235,11 @@ div.bodymsg {
     color: black;
     text-align: center;
     padding: 5px;
+    display: none;
+}
+
+.show-drop{
+    display: block;
 }
 
 .visibility-on{

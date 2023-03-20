@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
         <div class="container">
             <aside>
                 <header class="flex-h">
@@ -91,16 +91,16 @@
                 <!-- MAIN -->
                 <main>
                     <ul class="messages">
-                        <li class="msg" v-for="chat in contacts[chatIndex].messages">
-                            <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'" >
+                        <li v-if="contacts[chatIndex].messages.length > 0" class="msg" v-for="(chat, index) in contacts[chatIndex].messages">
+                            <div class="box" :class="chat.status === 'sent' ? 'sent' : 'recived'">
                                 <p>{{chat.message}}</p>
                                 <div>
-                                    <div class="dropdown-cnt">
-                                        <i class="fa-solid fa-chevron-down" @click="openMenu"></i>
-                                        <div class="dropdown" v-show="dropMenu === true">
+                                    <div class="dropdown-cnt" @click="selectMsg(index)" @mouseleave="removeDrop">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <div class="dropdown" :class="{'show-drop': showDrop(index) }" @mouseleave="removeDrop">
                                             <ul>
                                                 <li>Message Info</li>
-                                                <li>Delete message</li>
+                                                <li @click="deleteMsg(index)">Delete message</li>
                                             </ul>
                                         </div>
                                     </div>

@@ -9,7 +9,8 @@ createApp({
             searchKey: '',
             chatIndex: 0,
             newMsg: '',
-            dropMenu: false,
+            indexMsg: null,
+            showTentBox: false,
             contacts: [
                 {
                     name: 'Michele',
@@ -191,7 +192,7 @@ createApp({
                 }
                 this.contacts[this.chatIndex].messages.push(newObject);
                 this.newMsg = '';
-                setTimeout(this.answerMsg, 1000,chatToAnswer);
+                setTimeout(this.answerMsg, 1000, chatToAnswer);
             }
         },
         //RECIVE MESSAGE AUTO
@@ -223,8 +224,22 @@ createApp({
                 }
             })
         },
-        openMenu(){
-            this.dropMenu = !this.dropMenu;
+        selectMsg(index) {
+            this.indexMsg = index;
+            
+        },
+        showDrop(index) {
+            if (this.indexMsg === index) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        removeDrop() {
+            this.indexMsg = null;
+        },
+        deleteMsg(index) {
+            this.contacts[this.chatIndex].messages.splice(index, 1);
         }
     }
 }).mount('#app');
